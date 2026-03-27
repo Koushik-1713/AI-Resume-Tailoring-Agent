@@ -1,48 +1,194 @@
-# AI Resume Tailoring Agent (Java)
+# 🤖 AI Resume Tailoring Agent
 
+---
 
+## 💡 Why I Chose This Option
+
+I chose this project to demonstrate my ability to integrate **Artificial Intelligence with backend development**.
+This solution showcases how AI can automate resume customization for different job roles, improving efficiency and relevance.
+
+---
 
 ## 🚀 Project Overview
-This project reads job postings from Excel and JSON files and generates tailored resumes for each job role.
 
-## ⚙️ How It Works
-1. Reads job IDs from Excel file
-2. Matches job details from JSON file
-3. Extracts job information
-4. Reads candidate resume
-5. Generates tailored resume output
+This application reads a candidate’s resume and tailors it dynamically for a specific job role using an AI model.
 
-## 🛠️ Technologies Used
-- Java
-- Apache POI (Excel)
-- org.json (JSON)
+The system uses:
 
-## ▶️ Setup Instructions
-1. Open project in IntelliJ IDEA
-2. Add required libraries:
-    - Apache POI
-    - org.json
-3. Place input files inside `/data`
-4. Run `Main.java`
+* **Java** for backend processing
+* **Ollama (Llama3)** as a local Large Language Model (LLM)
+* **HTTP API integration** for communication between Java and AI
 
-## 📁 Input Files
-- option2_job_links.xlsx
-- option2_jobs.json
-- candidate_resume.txt
+---
 
-## 🧠 Approach
-- Used modular classes for each task
-- Implemented pipeline for data processing
-- Focused on clean and simple logic
+## 🧠 How It Works
+
+```text
+Resume Input → Java Application → Ollama (Llama3) → AI Processing → Tailored Resume Output
+```
+
+### Workflow:
+
+1. Read resume from input file
+2. Accept job role (e.g., Backend Software Engineer)
+3. Send prompt to Ollama API
+4. AI rewrites resume with relevant skills
+5. Output is displayed in clean professional format
+
+---
+
+## 🛠️ Tech Stack
+
+* **Language:** Java
+* **AI Model:** Llama3 (via Ollama)
+* **API:** Local HTTP API (`http://localhost:11434`)
+* **Tools:** IntelliJ IDEA / VS Code
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Install Ollama
+
+Download and install from:
+👉 https://ollama.com/download
+
+---
+
+### 2️⃣ Run the AI Model
+
+Open terminal and run:
+
+```bash
+ollama run llama3
+```
+
+Wait for the model to download (first time only).
+
+---
+
+### 3️⃣ Run Ollama Server (if needed)
+
+```bash
+ollama serve
+```
+
+---
+
+### 4️⃣ Compile and Run Java Program
+
+```bash
+javac *.java
+java Main
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+ResumeAgent/
+│
+├── src/
+│   ├── AIService.java
+│   ├── ResumeTailor.java
+│
+├── data/
+│   └── candidate_resume.txt
+│
+├── .env.example
+├── README.md
+├── .gitignore
+```
+
+---
+
+## 🔐 Environment Variables
+
+This project uses a local AI model (Ollama), so no API key is required.
+
+Example configuration:
+
+```env
+OLLAMA_BASE_URL=http://localhost:11434
+MODEL=llama3
+```
+
+---
+
+## 🧠 Key Design Decisions
+
+* Used **local AI (Ollama)** to avoid API costs and ensure offline capability
+* Implemented **prompt engineering** to generate structured resume output
+* Used **Java HTTP connections** to integrate AI services
+* Applied **text preprocessing** to handle encoding and formatting issues
+
+---
 
 ## ⚠️ Assumptions
-- Input files are correctly formatted
-- Resume is stored as text file
 
-## 🔮 Future Improvements
-- Add OpenAI API for real AI tailoring
-- Generate PDF resumes
-- Send emails automatically
+* Resume is provided in plain text format
+* Ollama is installed and running locally
+* User provides a valid job role
+* Internet is required only for initial model download
+
+---
+
+## 🔧 Challenges Faced
+
+* Handling JSON formatting issues
+* Fixing encoding problems (special characters)
+* Managing HTTP request/response correctly
+* Ensuring AI output is clean and structured
+
+---
+
+## 🚀 Future Improvements
+
+* Add **Frontend UI (Angular/React)**
+* Export resume as **PDF**
+* Support multiple job roles at once
+* Improve formatting with templates
+* Add resume upload feature
+
+---
 
 ## 🎥 Demo Video
-(Add your video link here)
+
+👉 (Add your video link here)
+
+---
+
+## 📦 Output Example
+
+```text
+Konduri Koushik
+
+SUMMARY
+Backend-focused software developer...
+
+SKILLS
+• Java, SQL, APIs
+
+PROJECTS
+• ML Stroke Prediction System...
+
+EDUCATION
+B.Tech – Computer Science
+
+ACHIEVEMENTS
+• Smart India Hackathon 2024
+```
+
+---
+
+## 🏆 Conclusion
+
+This project demonstrates a real-world application of AI in automating resume customization.
+It highlights backend development skills, API integration, and practical use of LLMs.
+
+---
+
+## 🙌 Author
+
+**Konduri Koushik**
