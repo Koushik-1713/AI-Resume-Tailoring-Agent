@@ -1,0 +1,31 @@
+Konduri Koushik
++91 7989325501 | kondurikoushik17@gmail.com | LinkedIn | GitHub
+
+EducationSri Indu College of Engineering2022 – 2026B.Tech – Computer Science and Information Technology
+HyderabadCGPA: 7.8Sri Chaitanya Jr College2020 – 2022Intermediate (MPC)
+Hyderabad91.5%Manasa High School2017 – 2018Class X
+JagtialCGPA: 10ProjectsML - Automated Stroke Prediction
+PythonJune 2024• Developed a high-accuracy ML model for Stroke Prediction classification using Logistic Regression, Random Forest, and XGBoost.
+• Performed data preprocessing, feature selection, model traning and evalution using clinical and demographic data.
+• Applied feature engineering techniques and built a streamlined workflow to support early detection and healthcare decision-making
+Detecting Mobile Malicious Webpages	March 2023
+JAVA, MySql
+• Exesting techniques to detect malicious websites are unlikely to work.
+• We design and implement KAYO, A mechanism that distinguishes between malicious and mobile webpages.
+• Improvement of two orders of magnitude in the speed of feature extraction.
+Human Centered Learing And Teaching Framework Using Generative AI	November 2025
+Python, Gen AI
+• Designed using Generative AI to transition K-12 education from standardized instruction.
+• Build data acquisition and AI integration modules using Python to process educational content and generate adaptive resources.
+• Implemented real time AI feedback mechanisms to improve student engagement and assist teachers with differentiated instruction.
+
+Technical Skills
+• Languages: Java, Python, C, HTML, CSS, JavaScript, SQL
+• Developer Tools: VS Code, Eclipse
+
+Accomplishments
+• Successfully completed ”Remark Skill Technical Workshop on Data Science” in IITH.
+• Certified for completing ”Microsoft Webinar” in SICET
+• Shortlisted for Smart India Hackathon 2024.
+
+
