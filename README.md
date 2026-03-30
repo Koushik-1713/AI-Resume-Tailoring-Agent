@@ -17,6 +17,21 @@ I chose this option to demonstrate my ability to integrate AI models with real-w
 This project reads a candidate’s resume and tailors it using an AI model (Ollama) to match a specific job role like Backend Software Engineer.
 
 ---
+## 🧩 Architecture
+
+Input → Resume File  
+↓  
+Text Cleaning & Processing  
+↓  
+Prompt Generation  
+↓  
+Ollama API Call (LLM)  
+↓  
+AI Response Processing  
+↓  
+Tailored Resume Output
+
+---
 
 ## 🚀 Features
 
@@ -58,6 +73,14 @@ ollama run llama3
 * Display AI response
 
 ---
+## 💡 Key Highlight
+This project uses a local LLM (Ollama), which ensures:
+- No API cost
+- Offline execution
+- Data privacy
+
+---
+
 
 ## ⚠️ Assumptions
 
