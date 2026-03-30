@@ -4,94 +4,93 @@
 
 Option 2 — AI Resume Tailoring Agent
 
-## 🤔 Why I Chose This
+---
 
-I chose this option because it demonstrates my ability to work with data processing, automation, and applying logic to real-world problems like resume optimization.
+## 🤔 Why I Chose This Option
+
+I chose this option to demonstrate my ability to integrate AI models with real-world applications. This project solves a practical problem of improving resumes based on job roles.
 
 ---
 
 ## 📌 Overview
 
-This project customizes a resume based on job descriptions to improve job application success by aligning skills with job requirements.
+This project reads a candidate’s resume and tailors it using an AI model (Ollama) to match a specific job role like Backend Software Engineer.
 
 ---
 
 ## 🚀 Features
 
-* Reads job descriptions from Excel/JSON files
-* Extracts relevant skills
-* Tailors resume content automatically
-* Supports multiple job inputs
+* Reads resume from file
+* Cleans and processes text
+* Uses AI (Ollama) for resume optimization
+* Generates tailored resume output
 
 ---
 
 ## 🛠️ Tech Stack
 
 * Java
-* JSON
-* Apache POI
 * Ollama (Local LLM)
+* HTTP API
 
 ---
 
 ## ⚙️ Setup Instructions
 
-1. Clone the repository
-2. Open in IntelliJ
-3. Add resume file
-4. Add job links (Excel/JSON)
-5. Run `Main.java`
-6. Install Ollama and run:
-   ollama run llama3
+1. Install Java
+2. Install Ollama from https://ollama.com
+3. Run:
+
+```
+ollama run llama3
+```
+
+4. Run the project (Main.java)
 
 ---
 
-## 🧠 Approach & Key Decisions
+## 🧠 Approach
 
-* Used Java for strong file handling and processing
-* Used Excel/JSON input for flexibility
-* Designed modular classes (Reader + Tailor) for better structure
+* Read resume file
+* Clean text
+* Create prompt
+* Send request to Ollama API
+* Display AI response
 
 ---
 
 ## ⚠️ Assumptions
 
-* Input files are correctly formatted
-* Resume and job data are available locally
-* User provides valid paths
+* Resume file exists
+* Ollama is running
+* Model is installed
 
 ---
 
-## 🔧 Improvements (Future Work)
+## 🔧 Improvements
 
-* Add UI interface
-* Integrate real LLM API
-* Automate resume generation
-* Add better keyword matching
-
----
-
-## 📂 Input Files
-
-* Resume file
-* Job description file (Excel/JSON)
-
----
-
-## 📈 Output
-
-* Tailored resume based on job requirements
+* Add UI
+* Add multiple job roles
+* Improve formatting
+* Generate PDF output
 
 ---
 
 ## 🎥 Demo Video
 
-(Add your video link here)
+https://drive.google.com/file/d/1rhHhGQQpeuMW7EIJIzSYL4g656LZ2SO4/view?usp=drivesdk
+
+---
+
+## 🔐 Environment Variables (.env.example)
+
+```
+OLLAMA_URL=http://localhost:11434
+OLLAMA_MODEL=llama3
+```
 
 ---
 
 ## 👨‍💻 Author
 
 Koushik
-
-
