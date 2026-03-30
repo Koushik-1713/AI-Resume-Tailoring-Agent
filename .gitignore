@@ -1,36 +1,33 @@
-### IntelliJ IDEA ###
+# IntelliJ
+.idea/
+
+# Build files
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-.kotlin
+build/
+target/
+*.class
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
-.DS_Store
+# Environment
 .env
-*.jar
+
+# Dependencies / caches
+.m2/
+.ollama/
+
+# Libraries
 lib/
+
+# OS files
+.DS_Store
+
+# VS Code
+.vscode/
 .idea/
 out/
+build/
+target/
 *.class
+.env
+.m2/
+.ollama/
+lib/
