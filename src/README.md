@@ -1,196 +1,157 @@
-# 🤖 AI Resume Tailoring Agent
+# AI Resume Tailoring Agent
 
+## 📌 Option Chosen
 
-
----
-
-## 💡 Why I Chose This Option
-
-I chose this project to demonstrate my ability to integrate **Artificial Intelligence with backend development**.
-This solution showcases how AI can automate resume customization for different job roles, improving efficiency and relevance.
+**Option 2 — AI Resume Tailoring Agent**
 
 ---
 
-## 🚀 Project Overview
+## 🤔 Why I Chose This Option
 
-This application reads a candidate’s resume and tailors it dynamically for a specific job role using an AI model.
-
-The system uses:
-
-* **Java** for backend processing
-* **Ollama (Llama3)** as a local Large Language Model (LLM)
-* **HTTP API integration** for communication between Java and AI
+I chose this option because it demonstrates my ability to work with real-world data processing, integrate AI models, and solve a practical problem — improving resumes for job applications. It also allowed me to explore local LLM integration using Ollama.
 
 ---
 
-## 🧠 How It Works
+## 📌 Overview
 
-```text
-Resume Input → Java Application → Ollama (Llama3) → AI Processing → Tailored Resume Output
-```
+This project is an AI-powered Resume Tailoring Agent that customizes a candidate's resume based on a specific job role. It analyzes the input resume and rewrites it to better match job requirements, making it more effective and ATS-friendly.
 
-### Workflow:
+---
 
-1. Read resume from input file
-2. Accept job role (e.g., Backend Software Engineer)
-3. Send prompt to Ollama API
-4. AI rewrites resume with relevant skills
-5. Output is displayed in clean professional format
+## 🚀 Features
+
+* Reads resume input from a file
+* Cleans and processes resume data
+* Uses AI (Ollama) to tailor resume content
+* Optimizes resume for specific job roles
+* Generates structured and improved resume output
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Language:** Java
-* **AI Model:** Llama3 (via Ollama)
-* **API:** Local HTTP API (`http://localhost:11434`)
-* **Tools:** IntelliJ IDEA / VS Code
+* Java
+* Ollama (Local LLM)
+* HTTP API Integration
+* File Handling (Java I/O)
 
 ---
 
 ## ⚙️ Setup Instructions
 
-### 1️⃣ Install Ollama
+### 1. Clone the repository
 
-Download and install from:
-👉 https://ollama.com/download
-
----
-
-### 2️⃣ Run the AI Model
-
-Open terminal and run:
-
-```bash
-ollama run llama3
+```
+git clone https://github.com/Koushik-1713/AI-Resume-Tailoring-Agent.git
 ```
 
-Wait for the model to download (first time only).
+### 2. Install Ollama
+
+Download and install from: https://ollama.com
 
 ---
 
-### 3️⃣ Run Ollama Server (if needed)
+### 3. Pull required model
 
-```bash
-ollama serve
+```
+ollama pull llama3
 ```
 
 ---
 
-### 4️⃣ Compile and Run Java Program
+### 4. Run Ollama (background)
 
-```bash
-javac *.java
-java Main
+Ollama runs automatically in background after installation.
+(Optional test):
+
+```
+curl http://localhost:11434
 ```
 
 ---
 
-## 📁 Project Structure
+### 5. Open project in IntelliJ / any IDE
 
-```text
-ResumeAgent/
-│
-├── src/
-│   ├── AIService.java
-│   ├── ResumeTailor.java
-│
-├── data/
-│   └── candidate_resume.txt
-│
-├── .env.example
-├── README.md
-├── .gitignore
+---
+
+### 6. Add input file
+
+Place your resume inside:
+
+```
+data/Candidate_resume.txt
 ```
 
 ---
 
-## 🔐 Environment Variables
+### 7. Run the project
 
-This project uses a local AI model (Ollama), so no API key is required.
+Run:
 
-Example configuration:
-
-```env
-OLLAMA_BASE_URL=http://localhost:11434
-MODEL=llama3
+```
+Main.java
 ```
 
 ---
 
-## 🧠 Key Design Decisions
+## 🧠 Approach & Key Decisions
 
-* Used **local AI (Ollama)** to avoid API costs and ensure offline capability
-* Implemented **prompt engineering** to generate structured resume output
-* Used **Java HTTP connections** to integrate AI services
-* Applied **text preprocessing** to handle encoding and formatting issues
+* Used **Ollama (local LLM)** instead of cloud APIs to avoid API costs and ensure privacy
+* Implemented **prompt engineering** to generate targeted resume output
+* Reduced input size for faster execution
+* Designed modular structure (`AIService`, `ResumeTailor`, `JsonReader`)
 
 ---
 
 ## ⚠️ Assumptions
 
-* Resume is provided in plain text format
+* Resume file is properly formatted
 * Ollama is installed and running locally
-* User provides a valid job role
-* Internet is required only for initial model download
+* Model (`llama3`) is available
+* User provides correct file path
 
 ---
 
-## 🔧 Challenges Faced
+## 🔧 Improvements (Future Work)
 
-* Handling JSON formatting issues
-* Fixing encoding problems (special characters)
-* Managing HTTP request/response correctly
-* Ensuring AI output is clean and structured
+* Add GUI interface for better usability
+* Support multiple job descriptions automatically
+* Improve resume formatting (PDF generation)
+* Use advanced LLMs for higher accuracy
+* Add keyword matching for ATS optimization
 
 ---
 
-## 🚀 Future Improvements
+## 📂 Input Files
 
-* Add **Frontend UI (Angular/React)**
-* Export resume as **PDF**
-* Support multiple job roles at once
-* Improve formatting with templates
-* Add resume upload feature
+* Resume file (`Candidate_resume.txt`)
+
+---
+
+## 📈 Output
+
+* AI-generated tailored resume based on job role
 
 ---
 
 ## 🎥 Demo Video
 
-👉 (Add your video link here)
+(Add your video link here)
 
 ---
 
-## 📦 Output Example
+## 🔐 Environment Variables
 
-```text
-Konduri Koushik
+Create a `.env.example` file:
 
-SUMMARY
-Backend-focused software developer...
-
-SKILLS
-• Java, SQL, APIs
-
-PROJECTS
-• ML Stroke Prediction System...
-
-EDUCATION
-B.Tech – Computer Science
-
-ACHIEVEMENTS
-• Smart India Hackathon 2024
+```
+OLLAMA_URL=http://localhost:11434
+OLLAMA_MODEL=llama3
 ```
 
 ---
 
-## 🏆 Conclusion
+## 👨‍💻 Author
 
-This project demonstrates a real-world application of AI in automating resume customization.
-It highlights backend development skills, API integration, and practical use of LLMs.
+Koushik
 
----
-
-## 🙌 Author
-
-**Konduri Koushik**

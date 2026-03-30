@@ -4,9 +4,9 @@ import java.net.URL;
 
 public class AIService {
 
-    public static String generateResume(String jobTitle, String resumeText) {
+    public static String callOllama(String prompt) {
         try {
-
+            System.out.println("Sending request to Ollama...");
             URL url = new URL("http://localhost:11434/api/generate");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
@@ -14,66 +14,70 @@ public class AIService {
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setDoOutput(true);
 
-            String prompt = "Rewrite the following resume for the role: " + jobTitle + ".\n"
-                    + "Return ONLY a professional resume.\n"
-                    + "Do NOT include explanations.\n"
-                    + "Use clear sections: SUMMARY, SKILLS, PROJECTS, EDUCATION, ACHIEVEMENTS.\n"
-                    + "Use bullet points.\n\n"
-                    + "Resume:\n" + resumeText;
+            conn.setConnectTimeout(120000); // 2 minutes
+            conn.setReadTimeout(120000);
 
+            // 🔥 ESCAPE PROBLEM CHARACTERS
             String safePrompt = prompt
                     .replace("\\", "\\\\")
                     .replace("\"", "\\\"")
-                    .replace("\r", "")
                     .replace("\n", "\\n")
-                    .replace("\t", " ")
-                    .replaceAll("[^\\x20-\\x7E]", "");
+                    .replace("\r", "")
+                    .replace("\t", " ");
 
-            String jsonInput = String.format(
-                    "{\"model\":\"llama3\",\"prompt\":\"%s\",\"stream\":false}",
-                    safePrompt
-            );
+            String jsonInput = "{"
+                    + "\"model\":\"llama3:8b\","
+                    + "\"prompt\":\"" + safePrompt + "\","
+                    + "\"stream\":false"
+                    + "}";
 
-            System.out.println("===== FINAL JSON =====");
-            System.out.println(jsonInput);
-            System.out.println("======================");
-
+            // Send request
             OutputStream os = conn.getOutputStream();
-            os.write(jsonInput.getBytes(java.nio.charset.StandardCharsets.UTF_8));
-            os.flush();
+            os.write(jsonInput.getBytes("utf-8"));
+            os.close();
+
+            System.out.println("Waiting for response...");
 
             int responseCode = conn.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
 
             BufferedReader br;
+
+            // 🔥 Handle error response also
             if (responseCode >= 400) {
                 br = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
             } else {
                 br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             }
 
-            String line;
             StringBuilder response = new StringBuilder();
+            String line;
 
             while ((line = br.readLine()) != null) {
                 response.append(line);
             }
 
-            String fullResponse = response.toString();
+            br.close();
 
-// Extract only AI text
-            String aiText = fullResponse
-                    .replaceAll(".*\"response\":\"", "")
-                    .replaceAll("\".*", "")
-                    .replace("\\n", "\n");
+            System.out.println("Response received!");
 
-            return aiText
-                    .replace("*", "")
-                    .replace("  ", " ")
-                    .trim();
+            String fullJson = response.toString();
+
+            // 🔥 Debug print (VERY IMPORTANT)
+            System.out.println("\nRAW RESPONSE:\n" + fullJson);
+
+            // Extract only response text
+            int start = fullJson.indexOf("\"response\":\"") + 12;
+            int end = fullJson.indexOf("\",\"done\"");
+
+            if (start > 11 && end > start) {
+                return fullJson.substring(start, end).replace("\\n", "\n");
+            }
+
+            return "Error parsing response";
 
         } catch (Exception e) {
-            return "AI Error: " + e.getMessage();
+            e.printStackTrace();
+            return "Error calling Ollama";
         }
     }
 }
