@@ -78,7 +78,7 @@ ollama run llama3
 
 ## 🎥 Demo Video
 
-(Add your video link here)
+https://drive.google.com/file/d/1rhHhGQQpeuMW7EIJIzSYL4g656LZ2SO4/view?usp=drivesdk
 
 ---
 

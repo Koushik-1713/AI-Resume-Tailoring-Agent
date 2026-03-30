@@ -26,7 +26,7 @@ public class AIService {
                     .replace("\t", " ");
 
             String jsonInput = "{"
-                    + "\"model\":\"llama3:8b\","
+                    + "\"model\":\"llama3\","
                     + "\"prompt\":\"" + safePrompt + "\","
                     + "\"stream\":false"
                     + "}";
